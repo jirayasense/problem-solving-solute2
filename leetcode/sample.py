@@ -10,3 +10,5 @@ for e in l:
     d_l2[e[0]] = max(d_l2[e[0]], e[1])
 
 print(d_l2)
+
+
