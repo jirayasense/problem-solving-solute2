@@ -52,5 +52,8 @@ target = 1 # [[1]]
 candidates = [1]
 target = 2  # [[1,1]]
 
+candidates = [1,3,4]
+target = 4
+
 ans = combinationSum(candidates, target)
 print(ans)
