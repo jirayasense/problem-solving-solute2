@@ -8,11 +8,12 @@ def findKthLargest4(nums: List[int], k: int) -> int:
 
     def quick_select(l, r):
         pivot, ptr = nums[r], l 
+        # ptr will point to pos where next smaller elem will be placed
         for i in range(l,r):
             if nums[i] <= pivot:
                 nums[i], nums[ptr] = nums[ptr], nums[i]
                 ptr += 1
-        nums[ptr], nums[r] = nums[r], nums[ptr]
+        nums[ptr], nums[r] = nums[r], nums[ptr]  # place pivot to its correct location
 
         if offset == ptr: return nums[offset]
         if offset < ptr: return quick_select(l, ptr-1)

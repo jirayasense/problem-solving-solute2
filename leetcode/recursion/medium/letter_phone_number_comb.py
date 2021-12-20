@@ -2,6 +2,7 @@
 
 from typing import List
 import itertools as it
+from string import ascii_lowercase as letters
 
 m = {
         '2': 'abc',
@@ -56,6 +57,31 @@ def letterCombinations3(digits: str) -> List[str]:
     m = ['', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
     return map(lambda l : ''.join(l), it.product(*map(m.__getitem__, map(int, digits))))
 
+def letterCombinations4(digits: str) -> List[str]:
+    '''
+     Deprecated old Answer
+    '''
+    ans = []
+    def pad(p, up):
+        '''
+            p: processed
+            up: unprocessed
+        '''
+        if not up:
+            ans.append(p)
+            return
+        
+        # get the first digit
+        digit = int(up[0])
+        l = (digit-1)*3
+        u = l + 3
+        for c in letters[l:u]:
+            pad(p+c, up[1:])
+
+    pad('', digits)
+    return ans
+
+
 # l1 = [1,2,3]
 # l2 = [4,5,6]
 # l3 = [7,8,9,10]
@@ -64,3 +90,5 @@ def letterCombinations3(digits: str) -> List[str]:
 
 d = "23"
 print(letterCombinations(d))
+
+print(letterCombinations4(d))

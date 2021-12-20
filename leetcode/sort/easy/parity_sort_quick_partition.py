@@ -15,6 +15,6 @@ def sortArrayByParity(nums: List[int]) -> List[int]:
             r -= 1
     return nums
 
-def sortArrayByParity2(self, nums: List[int]) -> List[int]:
+def sortArrayByParity2(nums: List[int]) -> List[int]:
     nums.sort(key= lambda x: x & 1)
     return nums

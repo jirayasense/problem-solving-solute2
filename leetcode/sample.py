@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, Counter
 import itertools as it
 import heapq 
 
@@ -20,6 +20,12 @@ heapq.heapify(h)
 print(h)
 heapq.heapreplace(h, 10)
 print(h)
+
+s1 = 'ama'
+s2 = 'maa'
+
+print(Counter(s1) == Counter(s2))
+
 
 
 

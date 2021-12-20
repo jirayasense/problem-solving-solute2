@@ -7,7 +7,8 @@ import heapq
 Goal :- Find the kth largest element in the array after several operation
 Idea :- As we need to add for each operation So we can use heap for purpose
         because add & remove in heap requires O(logn) time
-
+        push :- O(logn)
+        pop :- O(logn)
 
 '''
 class KthLargest:

@@ -17,6 +17,7 @@ def findTargetSumWays(nums: List[int], target: int) -> int:
             return 1 if target == cum_sum else 0
         if (i, cum_sum) in dp:
             return dp[(i, cum_sum)]
+        # 2 options for given digit either add it or subtract it
         dp[(i, cum_sum)] = v = explore(i+1, cum_sum + nums[i]) + explore(i+1, cum_sum - nums[i])
         return v
 

@@ -18,6 +18,7 @@ def findKthLargest4(nums: List[int], k: int) -> int:
     offset = size - k
 
     def quick_select(l, r):
+        ''' Using lamuto Algorithm '''
         pivot, ptr = nums[r], l 
         for i in range(l,r):
             if nums[i] <= pivot:
@@ -27,7 +28,7 @@ def findKthLargest4(nums: List[int], k: int) -> int:
 
         if offset == ptr: return nums[offset]
         if offset < ptr: return quick_select(l, ptr-1)
-        else: return quick_select(ptr+1,r)
+        else: return quick_select(ptr+1, r)
 
     return quick_select(0, size-1)
 
