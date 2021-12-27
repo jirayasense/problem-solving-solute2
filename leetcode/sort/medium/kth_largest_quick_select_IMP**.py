@@ -6,7 +6,7 @@ def findKthLargest4(nums: List[int], k: int) -> int:
     size = len(nums)
     offset = size - k
 
-    def quick_select(l, r):
+    def quick_select(l, r):  # Lamutos way of Selecting
         pivot, ptr = nums[r], l 
         # ptr will point to pos where next smaller elem will be placed
         for i in range(l,r):

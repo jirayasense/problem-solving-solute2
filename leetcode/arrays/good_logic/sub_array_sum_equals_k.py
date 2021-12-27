@@ -22,14 +22,14 @@ def subarraySum(nums: List[int], k: int) -> int:
     # sum of 0 can be available initially (assumption)
     #prefix_cnt = {0:1}  
     prefix_cnt = defaultdict(int)
-
+    prefix_cnt[0] = 1 # for sum = 0 assume achieved without any number => 1 way
     for n in nums:
         currSum += n 
         prefix = currSum - k
         # adjustment s.t.prefix can be removed with suffix = t remains
         total_cnt += prefix_cnt[prefix] # prefix can be removed in diff ways denoted by the map
-        prefix_cnt[prefix] += 1 # 1 more way to achieve prefix is recorded
-        
+        prefix_cnt[currSum] += 1 # 1 more way to achieve prefix = currSum is recorded
+
     return total_cnt
 
 
@@ -45,3 +45,6 @@ def subarraySum(nums: List[int], k: int) -> int:
 #         curr_sum += n 
 #         pre = curr_sum - k 
 #         prefix_length
+
+a = subarraySum([5,5], 10)
+print(a)

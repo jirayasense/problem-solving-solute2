@@ -1,7 +1,7 @@
 #! https://leetcode.com/problems/group-anagrams/
 
 
-from collections import defaultdict
+from collections import defaultdict, Counter
 from typing import DefaultDict, List
 from itertools import groupby
 from operator import itemgetter
@@ -23,12 +23,26 @@ def groupAnagrams2(strs: List[str]) -> List[List[str]]:
         d[''.join(sorted(s))].append(s)
     return d.values()
 
+def groupAnagrams3(strs: List[str]) -> List[List[str]]:
+    map = defaultdict(list)  # map the character vector to list of strings
+    for s in strs:
+        count = [0] * 26  # 26-lenght ie Bag-of-Characters
+        for c in s:
+            idx = ord(c) - ord('a')  # index of current character
+            count[idx] += 1
+        vector = tuple(count)
+        map[vector].append(s)  # add the mappiungn entry vector -> string s
+    return map.values()
+
 
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
-strs = ["cab", "tin", "pew", "duh", "may", "ill", "buy", "bar", "max", "doc"]
+#strs = ["cab", "tin", "pew", "duh", "may", "ill", "buy", "bar", "max", "doc"]
 
-ans = groupAnagrams2(strs)
+#ans = groupAnagrams2(strs)
 
+#print(*ans)
 
-print(*ans)
+#groupAnagrams3(strs)
+
+print(Counter('tan') == Counter('nat'))
