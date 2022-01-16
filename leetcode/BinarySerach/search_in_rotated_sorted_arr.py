@@ -53,6 +53,39 @@ def search(nums: List[int], target: int) -> int:
         # search in left part of p (i.e higher values bunch)
         return binary_search(nums, target, 0, p-1)
 
+def search(nums: List[int], target: int) -> int:
+    '''
+    idea :- rotated sorted array contain 2 parts : 
+            1) Left sorted part
+            2) Right sorted part
+            &
+            All the elements in Left Sorted Part are greater than Right Sorted Part
+            
+            Note :- Either part can be empty as well 
+                    Eg nums = [1,2,3]
+                        nums = [3,2,1]
+    '''
+    l, r = 0, len(nums)-1
+    
+    while l <= r:
+        m = (l + r) // 2
+        v = nums[m]
+        
+        if target == v:
+            return m
+        
+        if nums[l] <= v:        # {m} lies in Left Sorted Part
+            if nums[l] <= target < v: # {target} may resides in left sorted part
+                r = m-1
+            else:                     # {target} may resides in right sorted part
+                l = m+1
+        else:                   # {m} lies in Right Sorted Part  
+            if v < target <= nums[r]: # {target} may resides in right sorted part
+                l = m+1
+            else:          
+                r = m-1               # {target} may resides in left sorted part
+    return -1
+
 if __name__ == '__main__':
     arr = [4,5,6,1,2,3]
     #arr = [2,2,2,2,2,9,2]

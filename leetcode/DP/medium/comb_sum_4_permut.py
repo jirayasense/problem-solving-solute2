@@ -59,6 +59,7 @@ def combinationSum4_a1(nums: List[int], target: int) -> int:
 def combinationSum4(nums: List[int], target: int) -> int:
     '''
         Return all permutation of possibility Using Bottom-Up DP
+        (Filling the DP table Column Wise)
     '''
     dp = {0:1}  # for sum of 0 there is only 1 way
 
