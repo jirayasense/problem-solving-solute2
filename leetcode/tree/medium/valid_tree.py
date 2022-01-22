@@ -11,7 +11,6 @@ def validTree1(n, edges, root):
         return True 
     
     #1. Define Adjacency Matrix
-
     adj = {v:[] for v in range(n)}
 
     # We are treating as Directed Acyclic Graph = Tree
@@ -26,7 +25,7 @@ def validTree1(n, edges, root):
     visited = set()
     def dfs(v):
         if v in visited:
-            print(v)
+            #print(v)
             return True  # Cycle detected
 
         visited.add(v)
