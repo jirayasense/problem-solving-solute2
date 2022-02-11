@@ -9,6 +9,9 @@ from math import isqrt
 def numSquares(n: int) -> int:
     '''
      T.C = O(n*sqrt(n))
+
+     NOTE :- If we use Greedy Then me way not get minimal perfect-Squares
+             To get minimal Perfect Squares we use DP approach
     '''
     # In worst case to get n = (1+1+1... n times)
     # dp keep tracks of minimal perfect squares number require for sum corresp to index

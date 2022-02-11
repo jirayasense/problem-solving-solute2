@@ -23,6 +23,26 @@ def findDuplicate_ctr(nums):
             return n 
         d[n] += 1
 
+def findDuplicate_floyd(nums: List[int]) -> int:
+    # Floyd Algo 
+
+    # Step 1. Find the Meeting Point of fast & slow pointer
+    fast, slow = 0, 0  # both pointing to idxes 
+    while True:
+        slow = nums[slow]        # 1 step
+        fast = nums[nums[fast]]  # 2 steps
+
+        if fast == slow:  # reach meeting point in cycle
+            break 
+    
+    # Step 2. Find the Cycle Starting Point 
+    slow2 = 0
+    while True:
+        slow = nums[slow]
+        slow2 = nums[slow2]
+
+        if slow == slow2 : # start point of cycle 
+            return slow    # answer will be index & not val
 
 
 nums = [1,3,4,2,2]  # 2

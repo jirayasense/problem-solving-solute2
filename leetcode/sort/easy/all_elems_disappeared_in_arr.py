@@ -23,6 +23,16 @@ def findDisappearedNumbers(nums: List[int]) -> List[int]:
             ans.append(i + 1)
     return ans 
 
+# Better Solution (Logic)
+def findDisappearedNumbers2(nums: List[int]) -> List[int]:
+    '''Inndex Visited UnVisited Logic'''
+    for n in nums:
+        idx = abs(n)-1
+        nums[idx] = -1 * abs(nums[idx])  # -ve, :- num corresp to {idx} exists ie {idx+1}, somewhere in array
+    
+    return [i+1 for i in range(len(nums)) if nums[i] > 0]  # +ve, :- num corresp to {i} nnot found in array
+
+
 
 nums = [4,3,2,7,8,2,3,1]
 nums = [1,1]

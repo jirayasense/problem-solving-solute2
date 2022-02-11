@@ -49,13 +49,13 @@ def alienOrder(words: List[str]) -> str:
 
         visited[c] = True
 
-        for nei in adj[c]:
-            if dfs(nei):
+        for nei in adj[c]:  # Neighbor First than parent
+            if dfs(nei): 
                 return True
         
         visited[c] = False
 
-        res.append(c) # append the {c} to result
+        res.append(c) # append the {c} to result ie Parent at last ie post order
 
     for c in adj:
         if dfs(c):    # Cycle Exists
