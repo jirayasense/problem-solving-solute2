@@ -7,6 +7,8 @@ s = 'camelCaseString'
 ans = re.split(pat, s)
 print(ans)
 
+
+# Q1 -> convert to SnakeCase
 def f(s):
     pat = '(?<=.)(?=[A-Z])'
     ans = re.split(pat, s)
@@ -24,7 +26,7 @@ a = f('HackerEarth')
 print(a)
 
 
-# Find number fathest from 0 (if tie then take smaller val)
+# Q2 ->  ind number fathest from 0 (if tie then take smaller val)
 def f2(A):
     ''' O(n) '''
     pos = []
