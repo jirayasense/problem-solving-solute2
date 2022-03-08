@@ -46,7 +46,8 @@ def longestDupSubstring(s: str) -> str:
 
         common = lcp[rank] = skip + commonPrefixSize(curr, prev, skip)
 
-        next = max(0, common - 1)
+        #next = max(0, common - 1)
+        skip = max(0, common - 1)
 
     # 4. LDS = max value in longest common prefix
     rank = max(range(size), key=lcp.__getitem__)

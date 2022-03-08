@@ -4,8 +4,8 @@ from typing import List
 import heapq as hp
 
 
-def findKthLargest(nums: List[int], k: int) -> int:
-    pass   
+def findKthLargest1(nums: List[int], k: int) -> int:
+    return hp.nlargest(k, nums)[-1]
 
 def findKthLargest2(nums: List[int], k: int) -> int:
     hp.heapify(nums)
