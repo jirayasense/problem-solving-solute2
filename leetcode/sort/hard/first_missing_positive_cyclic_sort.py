@@ -21,6 +21,21 @@ def firstMissingPositive(nums: List[int]) -> int:
         if nums[i] != i+1:  # property i.e arr[i] = i+1, after cyclic sort
             return i+1
     return l+1  # all integer element are at proper location so next int will be smallest one to be missing
+
+def firstMissingPositive2(nums: List[int]) -> int:
+    # 1. Bit|Booleann Array (to check existsence)
+    found = [True, *[False]*300]    # assume +ve starts from 1 (So 0 already found)
+
+    # 2. Mark Existence
+    for n in nums:
+        found[n] = True
+    
+    # 3. check first mmissing positive  
+    for i, exist in enumerate(found):
+        if not exist:
+            return i
+    return 301  # All 300 elements exists
+
  
 nums = [1,2,0]
 nums = [3,4,-1,1]

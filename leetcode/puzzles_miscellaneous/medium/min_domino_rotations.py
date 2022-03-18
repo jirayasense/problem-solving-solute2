@@ -28,5 +28,9 @@ def minDominoRotations(tops: List[int], bottoms: List[int]) -> int:
 tops = [2,1,2,4,2,2]
 bottoms = [5,2,6,2,3,2]
 
+# Case 2
+tops = [2,5,5,5,5]
+bottoms = [5,1,1,1,1]
+
 a = minDominoRotations(tops, bottoms)
 print('ans :', a)
