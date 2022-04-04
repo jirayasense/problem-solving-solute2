@@ -1,6 +1,12 @@
 # https://leetcode.com/problems/next-permutation/
 
 from typing import List 
+import itertools as it
+
+def rev(arr, l, r):
+    while l<r:
+        arr[l], arr[r] = arr[r], arr[l]
+        l, r = l+1, r-1
 
 def nextPermutation(nums: List[int]) -> None:
     """
@@ -35,7 +41,8 @@ def nextPermutation(nums: List[int]) -> None:
 
             # 4. Reverse the Decreasing Part 
             #    NOTE :- this can be done in-place via 2 pointers 
-            nums[i:] = nums[i:][::-1]
+            #nums[i:] = nums[i:][::-1]
+            nums[i:] = reversed(it.islice(nums, i, size))
 
             # 5. Indicator of next permutation available
             break 
