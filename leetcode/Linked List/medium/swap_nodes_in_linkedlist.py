@@ -19,6 +19,7 @@ class ListNode:
         self.val = val
         self.next = next
 
+# Naive Approach
 def swapNodes(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     # 1. Find the length of the linked list
     curr, n = head, 0  # n := #nodes in linkedlist
@@ -56,14 +57,18 @@ def swapNodes(head: Optional[ListNode], k: int) -> Optional[ListNode]:
 
     return head
 
+# Better Approach
+def swapNodes2(head: Optional[ListNode], k: int) -> Optional[ListNode]:
+    '''Single Traversal'''
+    curr = head
+    l = k-1
+    while l:
+        curr, l = curr.next, l-1
+    
+    p1 = curr
+    p2 = head
+    while curr.next:
+        curr, p2 = curr.next, p2.next
 
-
-
-
-
-            
-
-        
-
-
-        
+    p1.val, p2.val = p2.val, p1.val
+    return head

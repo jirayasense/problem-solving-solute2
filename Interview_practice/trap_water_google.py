@@ -94,7 +94,7 @@ def trap(height: List[int]) -> int:
     while ramesh != suresh:  # loop until ramesh & suresh not meet each other
         # who has max at moment 
         if maxL <= maxR:
-            # ramesh knows atleast big wall is present on Left Side (by talking with suresh)
+            # ramesh knows atleast big wall is present on Right Side (by talking with suresh)
             # so ramesh has only to deal with left side max which he's tracking already
             ramesh += 1
             r_h = height[ramesh]
