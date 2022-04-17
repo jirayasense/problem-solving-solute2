@@ -18,7 +18,7 @@ def spiralOrder(matrix: List[List[int]]) -> List[int]:
     '''
         traverse matrix in spiral order clock-wise
     '''
-    spiral_traverse = []
+    spiral_traverse = []    
     while matrix:
         first_row = matrix.pop(0)
         spiral_traverse.extend(first_row)
@@ -61,5 +61,39 @@ def spiralOrder3(matrix: List[List[int]]) -> List[int]:
         n-=1
         direction *= -1 # flip direction
     return output
+
+
+def spiralOrder4(matrix: List[List[int]]) -> List[int]:
+    m, n = len(matrix), len(matrix[0])
+    res = []
+
+    #! NOTE : r & b are exclusive boundaries
+    l, r = 0, n  # left, right
+    t, b = 0, m  # top, bottom
+
+    while l<r and t<b:  # till matrxi is not filled/traveresed, spirally
+
+        # 1. fill TOP row (ie from left -> right)
+        for j in range(l, r):
+            res.append(matrix[t][j])
+        t += 1 # update next top row
+
+        # 2. fill RIGHT col (ie from top -> down)
+        for i in range(t, b):
+            res.append(matrix[i][r-1])
+        r -= 1 # update right boundary
+
+        if not (l < r and t < b):  # Single row or single col
+            break 
+
+        # 3. fill BOTTOM row (ie from right -> left)
+        for j in range(r-1, l-1, -1):
+            res.append(matrix[b-1][j])
+        b -= 1 # update next bottom row
+
+        # 4. fill LEFT col (ie from bottom -> top)
+        for i in range(b-1, t-1, -1):
+            res.append(matrix[i][l])
+        l += 1 # update left boundary
     
-            
+    return res          
