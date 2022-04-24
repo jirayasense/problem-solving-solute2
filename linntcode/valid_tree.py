@@ -1,4 +1,5 @@
 # https://www.lintcode.com/en/old/problem/graph-valid-tree/
+# https://leetcode.com/problems/graph-valid-tree/
 
 def validTree1(n, edges, root):
     '''
